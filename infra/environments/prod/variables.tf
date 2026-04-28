@@ -7,21 +7,25 @@ variable "location" {
 variable "resource_group_name" {
   description = "Name of the resource group"
   type        = string
+  default     = null
 }
 
 variable "function_app_name" {
   description = "Name of the function app"
   type        = string
+  default     = null
 }
 
 variable "app_service_plan_name" {
   description = "Name of the app service plan"
   type        = string
+  default     = null
 }
 
 variable "storage_account_name" {
   description = "Name of the storage account"
   type        = string
+  default     = null
 }
 
 variable "storage_account_tier" {
