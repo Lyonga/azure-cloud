@@ -1,3 +1,9 @@
+variable "azure_tenant_id" {
+  description = "Azure tenant ID used by the provider. Override per workspace if needed."
+  type        = string
+  default     = "79dd759b-3fbe-4ab1-9439-ff87b14ba8f2"
+}
+
 variable "location" {
   description = "Azure region override"
   type        = string

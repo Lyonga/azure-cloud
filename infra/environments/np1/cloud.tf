@@ -19,4 +19,6 @@ provider "azurerm" {
   features {}
 
   subscription_id = local.subscription_id
+  tenant_id       = var.azure_tenant_id
+  use_cli         = false
 }
