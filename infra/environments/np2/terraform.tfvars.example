@@ -1,0 +1,20 @@
+# NP2 Environment Terraform Variables
+# Copy this file to terraform.tfvars and fill in your actual values.
+# CI or your shell should also set:
+# export TF_CLOUD_ORGANIZATION="lyonga-org"
+# export TF_WORKSPACE="demo-infra-np2"
+
+resource_group_name   = "rg-demo-np2"
+function_app_name     = "func-demo-np2-001"
+app_service_plan_name = "asp-demo-np2-001"
+storage_account_name  = "stdemonp2001"
+location              = "eastus"
+sku_name              = "B1"
+
+app_settings = {
+  "ENVIRONMENT" = "np2"
+}
+
+common_tags = {
+  CostCenter = "engineering"
+}
