@@ -42,3 +42,13 @@ output "shared_storage_queue_ids" {
   description = "IDs of the shared storage queues"
   value       = try(module.storage_messaging[0].queue_ids, {})
 }
+
+output "shared_log_analytics_workspace_id" {
+  description = "ID of the shared Log Analytics workspace"
+  value       = try(module.log_analytics_public[0].workspace_id, null)
+}
+
+output "shared_log_analytics_workspace_customer_id" {
+  description = "Customer ID of the shared Log Analytics workspace"
+  value       = try(module.log_analytics_public[0].workspace_customer_id, null)
+}

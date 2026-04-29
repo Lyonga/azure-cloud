@@ -135,3 +135,33 @@ variable "shared_queue_names" {
   type        = list(string)
   default     = []
 }
+
+variable "enable_shared_log_analytics" {
+  description = "Whether to deploy the shared Log Analytics workspace."
+  type        = bool
+  default     = false
+}
+
+variable "shared_log_analytics_custom_name" {
+  description = "Custom name suffix for the public Log Analytics module."
+  type        = string
+  default     = "lyonga-azure-prod-shared-eus-01"
+}
+
+variable "shared_log_analytics_workspace_sku" {
+  description = "SKU for the shared Log Analytics workspace."
+  type        = string
+  default     = "PerGB2018"
+}
+
+variable "shared_log_analytics_retention_in_days" {
+  description = "Retention period in days for the shared Log Analytics workspace."
+  type        = number
+  default     = 30
+}
+
+variable "shared_log_analytics_daily_quota_gb" {
+  description = "Daily quota in GB for the shared Log Analytics workspace."
+  type        = string
+  default     = "1"
+}
