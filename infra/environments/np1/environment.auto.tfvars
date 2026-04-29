@@ -1,0 +1,20 @@
+resource_group_name      = "rg-demo-np1"
+function_app_name        = "func-demo-np1-001"
+app_service_plan_name    = "asp-demo-np1-001"
+storage_account_name     = "stdemonp1001"
+location                 = "eastus"
+storage_account_tier     = "Standard"
+storage_replication_type = "LRS"
+os_type                  = "Linux"
+sku_name                 = "B1"
+runtime_stack            = "python"
+runtime_version          = "3.11"
+functions_worker_runtime = "python"
+python_version           = "3.11"
+
+app_settings = {}
+
+common_tags = {
+  CostCenter = "engineering"
+  department = "ops"
+}

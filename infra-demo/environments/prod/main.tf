@@ -80,6 +80,5 @@ module "log_analytics_public" {
   internet_ingestion_enabled = var.shared_log_analytics_internet_ingestion_enabled
   internet_query_enabled     = var.shared_log_analytics_internet_query_enabled
   subscription_id            = local.subscription_id
-  tenant_id                  = var.azure_tenant_id
   tags                       = local.resolved_tags
 }

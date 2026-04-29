@@ -43,11 +43,6 @@ variable "subscription_id" {
   type        = string
 }
 
-variable "tenant_id" {
-  description = "Azure tenant ID passed to the public module."
-  type        = string
-}
-
 variable "tags" {
   description = "Tags to apply to resources."
   type        = map(string)

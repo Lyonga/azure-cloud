@@ -8,6 +8,8 @@ crash.log
 crash.*.log
 *.tfvars
 *.tfvars.json
+!infra/environments/*/*.auto.tfvars
+!infra-demo/environments/*/*.auto.tfvars
 override.tf
 override.tf.json
 *_override.tf

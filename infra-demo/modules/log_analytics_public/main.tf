@@ -7,6 +7,8 @@ terraform {
   }
 }
 
+data "azurerm_client_config" "current" {}
+
 module "log_analytics" {
   source  = "Umanis/log-analytics-workspace/azurerm"
   version = "2.0.0"
@@ -22,6 +24,6 @@ module "log_analytics" {
   internet_ingestion_enabled = var.internet_ingestion_enabled
   internet_query_enabled     = var.internet_query_enabled
   subscription_id            = var.subscription_id
-  tenant_id                  = var.tenant_id
+  tenant_id                  = data.azurerm_client_config.current.tenant_id
   custom_tags                = var.tags
 }

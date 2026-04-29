@@ -1,8 +1,3 @@
-variable "azure_tenant_id" {
-  description = "Azure tenant ID used by the provider. Override per workspace if needed."
-  type        = string
-}
-
 variable "location" {
   description = "Azure region override"
   type        = string
