@@ -8,6 +8,11 @@ variable "resource_group_name" {
   type        = string
 }
 
+variable "resource_group_id" {
+  description = "Resource group ID used to sequence the legacy public module when the group is created in the same plan."
+  type        = string
+}
+
 variable "location" {
   description = "Azure region."
   type        = string

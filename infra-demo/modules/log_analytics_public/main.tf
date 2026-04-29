@@ -9,13 +9,18 @@ terraform {
 
 data "azurerm_client_config" "current" {}
 
+resource "terraform_data" "resource_group_dependency" {
+  input = var.resource_group_id
+}
+
 module "log_analytics" {
   source  = "Umanis/log-analytics-workspace/azurerm"
   version = "2.0.0"
   # source  = "terraform-az-modules/log-analytics/azurerm"
   # version = "1.0.3"
 
-  resource_group_name        = var.resource_group_name
+  # Preserve the original name while making the legacy module depend on the RG ID.
+  resource_group_name        = "${var.resource_group_name}${substr(terraform_data.resource_group_dependency.output, 0, 0)}"
   instance_index             = var.instance_index
   custom_name                = var.custom_name
   custom_location            = var.location

@@ -73,6 +73,7 @@ module "log_analytics_public" {
 
   custom_name                = var.shared_log_analytics_custom_name
   resource_group_name        = module.resource_group.name
+  resource_group_id          = module.resource_group.id
   location                   = var.location
   instance_index             = var.shared_log_analytics_instance_index
   retention_in_days          = var.shared_log_analytics_retention_in_days
