@@ -8,12 +8,18 @@ resource_group_name      = "rg-demo-prod"
 function_app_name        = "func-demo-prod-001"
 app_service_plan_name    = "asp-demo-prod-001"
 storage_account_name     = "stdemoprod001"
+azure_tenant_id          = "79dd759b-3fbe-4ab1-9439-ff87b14ba8f2"
 location                 = "eastus"
+storage_account_tier     = "Standard"
 sku_name                 = "P1V2"
 storage_replication_type = "GRS"
+os_type                  = "Linux"
+runtime_stack            = "python"
+runtime_version          = "3.11"
+functions_worker_runtime = "python"
+python_version           = "3.11"
 
 app_settings = {
-  "ENVIRONMENT" = "prod"
 }
 
 common_tags = {
@@ -28,7 +34,9 @@ shared_container_access_type    = "private"
 shared_container_names          = ["app-data", "app-archive"]
 shared_queue_names              = ["requests", "notifications"]
 
-shared_log_analytics_custom_name        = "lyonga-azure-prod-shared-eus-01"
-shared_log_analytics_workspace_sku      = "PerGB2018"
-shared_log_analytics_retention_in_days  = 30
-shared_log_analytics_daily_quota_gb     = 1
+shared_log_analytics_custom_name                = "lyonga-azure-prod-shared-eus-01"
+shared_log_analytics_instance_index             = 1
+shared_log_analytics_retention_in_days          = 30
+shared_log_analytics_daily_quota_gb             = 1
+shared_log_analytics_internet_ingestion_enabled = true
+shared_log_analytics_internet_query_enabled     = true

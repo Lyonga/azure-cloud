@@ -16,31 +16,26 @@ variable "location" {
 variable "instance_index" {
   description = "Instance index required by the public module naming logic."
   type        = number
-  default     = 1
 }
 
 variable "retention_in_days" {
   description = "Workspace data retention in days."
   type        = number
-  default     = 30
 }
 
 variable "daily_quota_gb" {
   description = "Daily ingestion quota in GB. Use -1 for unlimited ingestion."
   type        = number
-  default     = 1
 }
 
 variable "internet_ingestion_enabled" {
   description = "Whether internet ingestion is enabled."
   type        = bool
-  default     = true
 }
 
 variable "internet_query_enabled" {
   description = "Whether internet query is enabled."
   type        = bool
-  default     = true
 }
 
 variable "subscription_id" {
@@ -56,5 +51,4 @@ variable "tenant_id" {
 variable "tags" {
   description = "Tags to apply to resources."
   type        = map(string)
-  default     = {}
 }

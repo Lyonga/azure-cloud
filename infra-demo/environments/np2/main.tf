@@ -1,18 +1,8 @@
 locals {
-  environment                    = "np2"
-  subscription_id                = "65ac2b14-e13a-40a0-bb50-93359232816e"
-  subscription_scope             = "non-prod"
-  default_location               = "eastus"
-  workspace_name                 = terraform.workspace == "default" ? "demo-infra-np2" : terraform.workspace
-  resolved_location              = coalesce(var.location, local.default_location)
-  default_resource_group_name    = "rg-lyonga-azure-np2-eus-01"
-  default_function_app_name      = "func-lyonga-azure-np2-eus-01"
-  default_app_service_plan_name  = "asp-lyonga-azure-np2-eus-01"
-  default_storage_account_name   = "stlyongaaznp2eus01"
-  resolved_resource_group_name   = coalesce(var.resource_group_name, local.default_resource_group_name)
-  resolved_function_app_name     = coalesce(var.function_app_name, local.default_function_app_name)
-  resolved_app_service_plan_name = coalesce(var.app_service_plan_name, local.default_app_service_plan_name)
-  resolved_storage_account_name  = coalesce(var.storage_account_name, local.default_storage_account_name)
+  environment        = "np2"
+  subscription_id    = "65ac2b14-e13a-40a0-bb50-93359232816e"
+  subscription_scope = "non-prod"
+  workspace_name     = terraform.workspace == "default" ? "demo-infra-np2" : terraform.workspace
   resolved_tags = merge(
     {
       Environment        = local.environment
@@ -34,19 +24,19 @@ locals {
 module "resource_group" {
   source = "../../modules/resource_group"
 
-  resource_group_name = local.resolved_resource_group_name
-  location            = local.resolved_location
+  resource_group_name = var.resource_group_name
+  location            = var.location
   tags                = local.resolved_tags
 }
 
 module "function_app" {
   source = "../../modules/function_app"
 
-  function_app_name        = local.resolved_function_app_name
-  app_service_plan_name    = local.resolved_app_service_plan_name
-  storage_account_name     = local.resolved_storage_account_name
+  function_app_name        = var.function_app_name
+  app_service_plan_name    = var.app_service_plan_name
+  storage_account_name     = var.storage_account_name
   resource_group_name      = module.resource_group.name
-  location                 = local.resolved_location
+  location                 = var.location
   storage_account_tier     = var.storage_account_tier
   storage_replication_type = var.storage_replication_type
   os_type                  = var.os_type
@@ -67,7 +57,7 @@ module "storage_messaging" {
 
   storage_account_name     = var.shared_storage_account_name
   resource_group_name      = module.resource_group.name
-  location                 = local.resolved_location
+  location                 = var.location
   storage_account_tier     = var.shared_storage_account_tier
   storage_replication_type = var.shared_storage_replication_type
   container_access_type    = var.shared_container_access_type
@@ -81,13 +71,15 @@ module "storage_messaging" {
 module "log_analytics_public" {
   source = "../../modules/log_analytics_public"
 
-  custom_name         = var.shared_log_analytics_custom_name
-  resource_group_name = module.resource_group.name
-  location            = local.resolved_location
-  retention_in_days   = var.shared_log_analytics_retention_in_days
-  daily_quota_gb      = var.shared_log_analytics_daily_quota_gb
-  subscription_id     = local.subscription_id
-  tenant_id           = var.azure_tenant_id
-  tags                = local.resolved_tags
-
+  custom_name                = var.shared_log_analytics_custom_name
+  resource_group_name        = module.resource_group.name
+  location                   = var.location
+  instance_index             = var.shared_log_analytics_instance_index
+  retention_in_days          = var.shared_log_analytics_retention_in_days
+  daily_quota_gb             = var.shared_log_analytics_daily_quota_gb
+  internet_ingestion_enabled = var.shared_log_analytics_internet_ingestion_enabled
+  internet_query_enabled     = var.shared_log_analytics_internet_query_enabled
+  subscription_id            = local.subscription_id
+  tenant_id                  = var.azure_tenant_id
+  tags                       = local.resolved_tags
 }

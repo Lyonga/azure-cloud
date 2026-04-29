@@ -31,19 +31,16 @@ variable "location" {
 variable "storage_account_tier" {
   description = "Storage account tier"
   type        = string
-  default     = "Standard"
 }
 
 variable "storage_replication_type" {
   description = "Storage account replication type"
   type        = string
-  default     = "LRS"
 }
 
 variable "os_type" {
   description = "OS type for function app and app service plan"
   type        = string
-  default     = "Linux"
 
   validation {
     condition     = var.os_type == "Linux"
@@ -54,13 +51,11 @@ variable "os_type" {
 variable "sku_name" {
   description = "SKU name for App Service Plan"
   type        = string
-  default     = "B1"
 }
 
 variable "runtime_stack" {
   description = "The runtime stack"
   type        = string
-  default     = "python"
 
   validation {
     condition     = lower(var.runtime_stack) == "python"
@@ -71,29 +66,24 @@ variable "runtime_stack" {
 variable "runtime_version" {
   description = "The runtime version"
   type        = string
-  default     = "3.11"
 }
 
 variable "functions_worker_runtime" {
   description = "The Functions worker runtime"
   type        = string
-  default     = "python"
 }
 
 variable "python_version" {
   description = "Python version"
   type        = string
-  default     = "3.10"
 }
 
 variable "app_settings" {
   description = "App settings for the function app"
   type        = map(string)
-  default     = {}
 }
 
 variable "tags" {
   description = "Tags to apply to resources"
   type        = map(string)
-  default     = {}
 }

@@ -8,11 +8,18 @@ resource_group_name   = "rg-demo-np2"
 function_app_name     = "func-demo-np2-001"
 app_service_plan_name = "asp-demo-np2-001"
 storage_account_name  = "stdemonp2001-trtt"
+azure_tenant_id       = "79dd759b-3fbe-4ab1-9439-ff87b14ba8f2"
 location              = "eastus"
-sku_name              = "B1"
+storage_account_tier  = "Standard"
+storage_replication_type = "LRS"
+os_type                  = "Linux"
+sku_name                 = "B1"
+runtime_stack            = "python"
+runtime_version          = "3.11"
+functions_worker_runtime = "python"
+python_version           = "3.11"
 
 app_settings = {
-  "ENVIRONMENT" = "np2"
 }
 
 common_tags = {
