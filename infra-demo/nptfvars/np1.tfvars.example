@@ -17,5 +17,4 @@ app_settings = {
 
 common_tags = {
   CostCenter = "engineering"
-  department = "ops"
 }
