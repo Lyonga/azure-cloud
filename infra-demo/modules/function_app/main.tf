@@ -40,7 +40,7 @@ resource "azurerm_linux_function_app" "function_app" {
   storage_account_name        = azurerm_storage_account.storage.name
   storage_account_access_key  = azurerm_storage_account.storage.primary_access_key
   functions_extension_version = "~4"
-  https_only                  = true
+  https_only                  = false
   tags                        = var.tags
 
   app_settings = merge(local.default_app_settings, var.app_settings)
