@@ -60,3 +60,20 @@ module "function_app" {
 
   depends_on = [module.resource_group]
 }
+
+module "storage_messaging" {
+  count  = var.enable_shared_storage_messaging ? 1 : 0
+  source = "../../modules/storage_messaging"
+
+  storage_account_name     = var.shared_storage_account_name
+  resource_group_name      = module.resource_group.name
+  location                 = local.resolved_location
+  storage_account_tier     = var.shared_storage_account_tier
+  storage_replication_type = var.shared_storage_replication_type
+  container_access_type    = var.shared_container_access_type
+  container_names          = var.shared_container_names
+  queue_names              = var.shared_queue_names
+  tags                     = local.resolved_tags
+
+  depends_on = [module.resource_group]
+}

@@ -19,3 +19,11 @@ app_settings = {
 common_tags = {
   CostCenter = "engineering"
 }
+
+enable_shared_storage_messaging = true
+shared_storage_account_name     = "stlyongaprodshare01"
+shared_storage_account_tier     = "Standard"
+shared_storage_replication_type = "GRS"
+shared_container_access_type    = "private"
+shared_container_names          = ["app-data", "app-archive"]
+shared_queue_names              = ["requests", "notifications"]

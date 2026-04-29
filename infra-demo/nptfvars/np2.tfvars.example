@@ -19,3 +19,11 @@ common_tags = {
   CostCenter = "engineering"
   department = "ops"
 }
+
+enable_shared_storage_messaging = true
+shared_storage_account_name     = "stlyonganp2shared01"
+shared_storage_account_tier     = "Standard"
+shared_storage_replication_type = "LRS"
+shared_container_access_type    = "private"
+shared_container_names          = ["app-data", "app-archive"]
+shared_queue_names              = ["requests", "notifications"]

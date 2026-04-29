@@ -93,3 +93,45 @@ variable "common_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "enable_shared_storage_messaging" {
+  description = "Whether to deploy the shared storage account, containers, and queues."
+  type        = bool
+  default     = false
+}
+
+variable "shared_storage_account_name" {
+  description = "Storage account name for the shared storage module."
+  type        = string
+  default     = null
+}
+
+variable "shared_storage_account_tier" {
+  description = "Storage account tier for the shared storage module."
+  type        = string
+  default     = "Standard"
+}
+
+variable "shared_storage_replication_type" {
+  description = "Storage replication type for the shared storage module."
+  type        = string
+  default     = "LRS"
+}
+
+variable "shared_container_access_type" {
+  description = "Blob container access type for the shared storage module."
+  type        = string
+  default     = "private"
+}
+
+variable "shared_container_names" {
+  description = "Blob container names for the shared storage module."
+  type        = list(string)
+  default     = []
+}
+
+variable "shared_queue_names" {
+  description = "Queue names for the shared storage module."
+  type        = list(string)
+  default     = []
+}
