@@ -7,7 +7,7 @@
 resource_group_name   = "rg-demo-np2"
 function_app_name     = "func-demo-np2-001"
 app_service_plan_name = "asp-demo-np2-001"
-storage_account_name  = "stdemonp2001"
+storage_account_name  = "stdemonp2001-test"
 location              = "eastus"
 sku_name              = "B1"
 
