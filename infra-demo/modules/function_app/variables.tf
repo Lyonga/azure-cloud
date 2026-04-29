@@ -83,7 +83,7 @@ variable "functions_worker_runtime" {
 variable "python_version" {
   description = "Python version"
   type        = string
-  default     = "3.11"
+  default     = "3.10"
 }
 
 variable "app_settings" {
