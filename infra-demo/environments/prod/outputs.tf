@@ -45,10 +45,15 @@ output "shared_storage_queue_ids" {
 
 output "shared_log_analytics_workspace_id" {
   description = "ID of the shared Log Analytics workspace"
-  value       = try(module.log_analytics_public[0].workspace_id, null)
+  value       = module.log_analytics_public.workspace_id
+}
+
+output "shared_log_analytics_workspace_name" {
+  description = "Name of the shared Log Analytics workspace"
+  value       = module.log_analytics_public.workspace_name
 }
 
 output "shared_log_analytics_workspace_customer_id" {
   description = "Customer ID of the shared Log Analytics workspace"
-  value       = try(module.log_analytics_public[0].workspace_customer_id, null)
+  value       = module.log_analytics_public.workspace_customer_id
 }

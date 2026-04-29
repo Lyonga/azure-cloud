@@ -136,12 +136,6 @@ variable "shared_queue_names" {
   default     = []
 }
 
-variable "enable_shared_log_analytics" {
-  description = "Whether to deploy the shared Log Analytics workspace."
-  type        = bool
-  default     = false
-}
-
 variable "shared_log_analytics_custom_name" {
   description = "Custom name suffix for the public Log Analytics module."
   type        = string
@@ -149,7 +143,7 @@ variable "shared_log_analytics_custom_name" {
 }
 
 variable "shared_log_analytics_workspace_sku" {
-  description = "SKU for the shared Log Analytics workspace."
+  description = "Reserved for parity with other demos; not used by the selected public module."
   type        = string
   default     = "PerGB2018"
 }
@@ -162,6 +156,6 @@ variable "shared_log_analytics_retention_in_days" {
 
 variable "shared_log_analytics_daily_quota_gb" {
   description = "Daily quota in GB for the shared Log Analytics workspace."
-  type        = string
-  default     = "1"
+  type        = number
+  default     = 1
 }

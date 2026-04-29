@@ -79,18 +79,15 @@ module "storage_messaging" {
 }
 
 module "log_analytics_public" {
-  count  = var.enable_shared_log_analytics ? 1 : 0
   source = "../../modules/log_analytics_public"
 
-  enabled                     = var.enable_shared_log_analytics
-  custom_name                 = var.shared_log_analytics_custom_name
-  environment                 = local.environment
-  resource_group_name         = module.resource_group.name
-  location                    = local.resolved_location
-  log_analytics_workspace_sku = var.shared_log_analytics_workspace_sku
-  retention_in_days           = var.shared_log_analytics_retention_in_days
-  daily_quota_gb              = var.shared_log_analytics_daily_quota_gb
-  tags                        = local.resolved_tags
+  custom_name         = var.shared_log_analytics_custom_name
+  resource_group_name = module.resource_group.name
+  location            = local.resolved_location
+  retention_in_days   = var.shared_log_analytics_retention_in_days
+  daily_quota_gb      = var.shared_log_analytics_daily_quota_gb
+  subscription_id     = local.subscription_id
+  tenant_id           = var.azure_tenant_id
+  tags                = local.resolved_tags
 
-  depends_on = [module.resource_group]
 }

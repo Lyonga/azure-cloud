@@ -1,16 +1,5 @@
-variable "enabled" {
-  description = "Whether to deploy the Log Analytics workspace."
-  type        = bool
-  default     = true
-}
-
 variable "custom_name" {
-  description = "Custom suffix used by the public module. The upstream module prefixes the final resource with law-."
-  type        = string
-}
-
-variable "environment" {
-  description = "Environment label for the public module."
+  description = "Custom name for the Log Analytics workspace."
   type        = string
 }
 
@@ -24,10 +13,10 @@ variable "location" {
   type        = string
 }
 
-variable "log_analytics_workspace_sku" {
-  description = "SKU for the Log Analytics workspace."
-  type        = string
-  default     = "PerGB2018"
+variable "instance_index" {
+  description = "Instance index required by the public module naming logic."
+  type        = number
+  default     = 1
 }
 
 variable "retention_in_days" {
@@ -38,8 +27,8 @@ variable "retention_in_days" {
 
 variable "daily_quota_gb" {
   description = "Daily ingestion quota in GB. Use -1 for unlimited ingestion."
-  type        = string
-  default     = "1"
+  type        = number
+  default     = 1
 }
 
 variable "internet_ingestion_enabled" {
@@ -52,6 +41,16 @@ variable "internet_query_enabled" {
   description = "Whether internet query is enabled."
   type        = bool
   default     = true
+}
+
+variable "subscription_id" {
+  description = "Azure subscription ID passed to the public module."
+  type        = string
+}
+
+variable "tenant_id" {
+  description = "Azure tenant ID passed to the public module."
+  type        = string
 }
 
 variable "tags" {
