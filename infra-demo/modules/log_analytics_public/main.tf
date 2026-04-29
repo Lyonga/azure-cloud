@@ -9,7 +9,9 @@ terraform {
 
 module "log_analytics" {
   source  = "Umanis/log-analytics-workspace/azurerm"
-  version = "2.0.0"
+  version = "1.0.0"
+  # source  = "terraform-az-modules/log-analytics/azurerm"
+  # version = "1.0.3"
 
   resource_group_name        = var.resource_group_name
   instance_index             = var.instance_index
