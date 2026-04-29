@@ -18,7 +18,7 @@ output "container_ids" {
   value       = { for name, container in azurerm_storage_container.containers : name => container.id }
 }
 
-output "queue_ids" {
-  description = "IDs of the created storage queues"
-  value       = { for name, queue in azurerm_storage_queue.queues : name => queue.id }
-}
+# output "queue_ids" {
+#   description = "IDs of the created storage queues"
+#   value       = { for name, queue in azurerm_storage_queue.queues : name => queue.id }
+# }
