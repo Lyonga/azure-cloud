@@ -29,5 +29,5 @@ shared_queue_names              = ["requests", "notifications"]
 
 shared_log_analytics_custom_name        = "lyonga-azure-np1-shared-eus-01"
 shared_log_analytics_workspace_sku      = "PerGB2018"
-shared_log_analytics_retention_in_days  = 30
+shared_log_analytics_retention_in_days  = 60
 shared_log_analytics_daily_quota_gb     = 1
