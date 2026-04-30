@@ -15,7 +15,8 @@ resource "terraform_data" "resource_group_dependency" {
 
 module "log_analytics" {
   source  = "Umanis/log-analytics-workspace/azurerm"
-  version = "2.0.0"
+  //version = "2.0.0"
+  version = "1.1.0"
   # source  = "terraform-az-modules/log-analytics/azurerm"
   # version = "1.0.3"
 
