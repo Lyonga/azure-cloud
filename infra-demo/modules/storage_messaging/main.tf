@@ -26,9 +26,9 @@ resource "azurerm_storage_container" "containers" {
   container_access_type = var.container_access_type
 }
 
-# resource "azurerm_storage_queue" "queues" {
-#   for_each = toset(var.queue_names)
+resource "azurerm_storage_queue" "queues" {
+  for_each = toset(var.queue_names)
 
-#   name                 = each.value
-#   storage_account_name = azurerm_storage_account.storage.name
-# }
+  name                 = each.value
+  storage_account_name = azurerm_storage_account.storage.name
+}
